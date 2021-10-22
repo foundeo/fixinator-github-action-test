@@ -17,3 +17,4 @@ jobs:
       uses: foundeo/fixinator-github-action@master
       with:
         fixinator_api_key: ${{ secrets.FIXINATOR_API_KEY }}
+        confidence: 'low'
