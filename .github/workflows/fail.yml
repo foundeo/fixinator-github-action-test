@@ -18,4 +18,4 @@ jobs:
       with:
         fixinator_api_key: ${{ secrets.FIXINATOR_API_KEY }}
         confidence: 'low'
-        path: 'pass.cfm'
+        path: 'fail.cfm'
