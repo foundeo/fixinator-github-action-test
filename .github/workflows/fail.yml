@@ -1,0 +1,21 @@
+
+name: Fail
+
+on:
+  push:
+    branches: [ main ]
+  
+  workflow_dispatch:
+
+jobs:
+
+  fixinator:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v2
+    - name: Fixinator Security Scan 
+      uses: foundeo/fixinator-github-action@master
+      with:
+        fixinator_api_key: ${{ secrets.FIXINATOR_API_KEY }}
+        confidence: 'low'
+        path: 'pass.cfm'
