@@ -1,3 +1,4 @@
+name: Artifact
 on:
   push:
     branches: [ main ]
@@ -13,11 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run Fixinator
-      run: box fixinator resultFile=fixinator-report.html resultFormat=html failOnIssues=false
+      run: box fixinator resultFile=fixinator-report.pdf resultFormat=pdf failOnIssues=false
       env:
         FIXINATOR_API_KEY: ${{ secrets.FIXINATOR_API_KEY }}
     - uses: actions/upload-artifact@v3
       with:
         name: fixinator-report
-        path: fixinator-report.html
+        path: fixinator-report.pdf
 
