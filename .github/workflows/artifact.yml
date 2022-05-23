@@ -12,7 +12,11 @@ jobs:
       image: ghcr.io/foundeo/fixinator-docker/fixinator:latest
     
     steps:
+    - name: Install git client
+      run: apk add git
     - uses: actions/checkout@v2
+      with: 
+       fetch-depth: 2
     - name: Run Fixinator
       run: box fixinator resultFile=fixinator-report.pdf resultFormat=pdf failOnIssues=false
       env:
